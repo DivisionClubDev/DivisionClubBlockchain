@@ -1,0 +1,26 @@
+# /etc/conf.d/divcd: config file for /etc/init.d/divcd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/divc/divc.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/divcd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/divcd.pid"
+
+# Where to write divcd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/divcd"
+
+# User and group to own divcd process
+#BITCOIND_USER="divc"
+#BITCOIND_GROUP="divc"
+
+# Path to divcd executable
+#BITCOIND_BIN="/usr/bin/divcd"
+
+# Nice value to run divcd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

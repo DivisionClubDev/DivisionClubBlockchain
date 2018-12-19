@@ -1,0 +1,26 @@
+[Unit]
+Description=Divc's distributed currency daemon
+After=network.target
+
+[Service]
+User=divc
+Group=divc
+
+Type=forking
+PIDFile=/var/lib/divcd/divcd.pid
+
+ExecStart=/usr/bin/divcd -daemon -pid=/var/lib/divcd/divcd.pid \
+          -conf=/etc/divc/divc.conf -datadir=/var/lib/divcd
+
+ExecStop=-/usr/bin/divc-cli -conf=/etc/divc/divc.conf \
+         -datadir=/var/lib/divcd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
